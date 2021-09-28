@@ -8,21 +8,27 @@ import { Component, OnInit } from '@angular/core';
 export class ListTodosComponent implements OnInit {
 
   todos=[
-    { id:1,descripption:'Learn to dance'},
-    { id:2,descripption:'Learn to draw'},
-    { id:3,descripption:'Learn to sing'},
-    { id:4,descripption:'Learn to play'},
-    { id:5,descripption:'Learn to jump'},
-    { id:6,descripption:'Learn to drive'},
-    { id:7,descripption:'Learn to create'}
+
+    new Todo(1,'Learn to dance',false,new Date()),
+    new Todo(2,'Learn to swim',false,new Date()),
+    new Todo(3,'Learn to sing',false,new Date()),
+    new Todo(4,'Learn to travel',false,new Date()),
+    new Todo(5,'Learn to run',false,new Date()),
+    new Todo(6,'Learn to jump',false,new Date()),
+    new Todo(7,'Learn to scream',false,new Date()),
 
 ]
-
-  todo = { id:1,descripption:'Learn to dance'}
-
-  constructor() { }
 
   ngOnInit(): void {
   }
 
+}
+
+export class Todo{
+  constructor(
+    public id :number,
+    public description:string,
+    public done:boolean,
+    public targetDate:Date
+    ){}
 }
