@@ -1,10 +1,15 @@
-<small *ngIf=invalidLogin>{{errorMessage}}</small>
-<div>
-    <div>    
-        Username : <input type="text" name="username" [(ngModel)]="username" >
+<h1>Login!</h1>
+<div class="container d-inline-flex p-2 bd-highlight d-flex justify-content-center">
+    
+    <div class="d-flex flex-column bd-highlight mb-3 d-flex ">
+        <div class="alert alert-warning" *ngIf=invalidLogin>{{errorMessage}}</div>
+        <div class="p-2 bd-highlight flex-row-reverse">    
+            Username : <input type="text" name="username" [(ngModel)]="username" >
+        </div>
+        <div class="p-2 bd-highlight flex-row-reverse">
+            Password : <input type="password" name="password" [(ngModel)]="password">
+        </div>
+        <button (click)=handleLogin() class="btn btn-success">Login</button>
     </div>
-    <div>
-        Password :<input type="password" name="password" [(ngModel)]="password">
-    </div>
-    <button (click)=handleLogin()>Login</button>
 </div>
+

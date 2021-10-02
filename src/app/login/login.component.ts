@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,16 +13,22 @@ export class LoginComponent implements OnInit {
   password = ''
   errorMessage='Inavlid credentials'
   invalidLogin=false
-  router : Router
+  private router : Router
+  private hardcodedAuthenticationService : HardcodedAuthenticationService
 
 
-  constructor(router:Router) { this.router = router }
+  constructor(router:Router,hardcodedAuthenticationService:HardcodedAuthenticationService) 
+  { 
+    this.router = router 
+    this.hardcodedAuthenticationService = hardcodedAuthenticationService;
+  }
 
   ngOnInit(): void {
 
   }
   handleLogin(){
-    if(this.username === "admin" && this.password === "1234"){
+    //if(this.username === "admin" && this.password === "1234"){
+    if(this.hardcodedAuthenticationService.authenticate(this.username,this.password)){
       this.router.navigate(['welcome',this.username])
       this.invalidLogin = false
     }else{

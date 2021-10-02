@@ -1,19 +1,23 @@
-<table border='2'>
-    <caption>My Todo's</caption>
-    <thead border='1'>
-        <tr border='1'>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Target date</th>
-            <th>Is completed</th>
-        </tr>
-    </thead>
-    <tbody border='1'>
-        <tr *ngFor="let todo of todos" border='1'>
-            <td>{{todo.id}}</td>
-            <td>{{todo.description}}</td>
-            <td>{{todo.targetDate | date}}</td>
-            <td>{{todo.done}}</td>
-        </tr>
-    </tbody>
-</table>
+<h1>My Todo's</h1>
+<div class="container">
+    <table  class="table">
+        <caption>My Todo's</caption>
+        <thead >
+            <tr >
+                <th>ID</th>
+                <th>Description</th>
+                <th>Target date</th>
+                <th>Is completed</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let todo of todos"  >
+                <td>{{todo.id}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.targetDate | date}}</td>
+                <td>{{todo.done}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
