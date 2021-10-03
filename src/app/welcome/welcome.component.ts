@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 //import { AppComponent } from '../app.component';
 import { LoginComponent } from '../login/login.component';
+import { WelcomeDataService } from '../service/data/welcome-data.service';
 
 //decorator object creation 
 @Component({
@@ -15,13 +16,18 @@ export class WelcomeComponent implements OnInit {
   message2 : string = 'Some welcome message 2'
   name = ''
 
-  constructor(private route:ActivatedRoute) { }
+  constructor(
+    private route:ActivatedRoute,
+    private welcomeDataService:WelcomeDataService) { }
 
   ngOnInit(): void {
-    console.log(this.message)
+    //console.log(this.message)
     this.name = this.route.snapshot.params['name']
   }
-
+  getWelcomeMessage(){
+    console.log(this.welcomeDataService.executeHelloworldBeanService());
+    this.welcomeDataService.executeHelloworldBeanService().subscribe();
+  }
 }
 export class Class1{
 
