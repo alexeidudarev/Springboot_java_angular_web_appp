@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.appfactory.rest.webservices.restfulwebservices.hellowrorld.HelloWorldBean;
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class HelloController {
@@ -22,8 +24,8 @@ public class HelloController {
 	//http://localhost:8080/hello-world-bean
 	@GetMapping(path="/hello-world-bean")
 	public HelloWorldBean helloWorldBean(){
-		//return new HelloWorldBean("Hello World changed");
-		throw new RuntimeException("Some error happend ! Contact Support at ***-*** !");
+		return new HelloWorldBean("Hello World changed");
+		//throw new RuntimeException("Some error happend ! Contact Support at ***-*** !");
 	}
 	////http://localhost:8080/hello-world-bean/path-variable/
 	@GetMapping(path="/hello-world-bean/path-variable/{name}")

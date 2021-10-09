@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 //import { AppComponent } from '../app.component';
 import { LoginComponent } from '../login/login.component';
 import { WelcomeDataService } from '../service/data/welcome-data.service';
+import { TodoDataService } from '../service/data/todo-data.service';
 
 //decorator object creation 
 @Component({
@@ -19,7 +20,8 @@ export class WelcomeComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
-    private welcomeDataService:WelcomeDataService) { }
+    private welcomeDataService:WelcomeDataService,
+    private todoDataService:TodoDataService) { }
 
   ngOnInit(): void {
     this.name = this.route.snapshot.params['name']
