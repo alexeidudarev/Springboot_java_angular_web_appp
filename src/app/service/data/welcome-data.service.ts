@@ -11,6 +11,9 @@ export class WelcomeDataService {
   ) { }
 
   executeHelloworldBeanService(){
-    return this.http.get('http://localhost:8080/hello-world-bean');
+    return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
   }
+}
+export class HelloWorldBean{
+  constructor( public message:string){}
 }
