@@ -22,7 +22,8 @@ public class HelloController {
 	//http://localhost:8080/hello-world-bean
 	@GetMapping(path="/hello-world-bean")
 	public HelloWorldBean helloWorldBean(){
-		return new HelloWorldBean("Hello World");
+		//return new HelloWorldBean("Hello World changed");
+		throw new RuntimeException("Some error happend ! Contact Support at ***-*** !");
 	}
 	////http://localhost:8080/hello-world-bean/path-variable/
 	@GetMapping(path="/hello-world-bean/path-variable/{name}")
