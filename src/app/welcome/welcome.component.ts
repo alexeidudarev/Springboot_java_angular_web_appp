@@ -22,7 +22,6 @@ export class WelcomeComponent implements OnInit {
     private welcomeDataService:WelcomeDataService) { }
 
   ngOnInit(): void {
-    //console.log(this.message)
     this.name = this.route.snapshot.params['name']
   }
   getWelcomeMessage(){
@@ -33,6 +32,14 @@ export class WelcomeComponent implements OnInit {
         
     );
   }
+  getMessageParam(){
+    this.welcomeDataService.executeServiceWithPathVariable(this.name).subscribe(
+        response => this.handlefullReponse(response.message),
+        error => this.handlefullReponse(error.error.message)
+        
+    );
+  }
+ 
   handlefullReponse(response: string){
     this.messageFromService = response
   }

@@ -13,6 +13,10 @@ export class WelcomeDataService {
   executeHelloworldBeanService(){
     return this.http.get<HelloWorldBean>('http://localhost:8080/hello-world-bean');
   }
+  //http://localhost:8080/hello-world-bean/path-variable/
+  executeServiceWithPathVariable(message:string){
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean/path-variable/${message}`);
+  }
 }
 export class HelloWorldBean{
   constructor( public message:string){}
